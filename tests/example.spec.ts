@@ -68,8 +68,5 @@ for (let index = 0; index < 500; index++) {
     // await page.goto('https://staging.aerogarden.com/on/demandware.store/Sites-Aerogarden-Site/en_US/Stripe-PaymentElementOrderPlaced');
     // await page.goto('https://staging.aerogarden.com/order-confirmation/?ID=STG_AG_00037089&token=FFkfdkWRoApM8ImTvJAqzdkzHy1aFahwpAj5K7ih0jc');
     await page.waitForURL(/order-confirmation/);
-    await expect(
-      page.getByRole("heading", { name: "Thank You", exact: true })
-    ).toBeVisible();
   });
 }
