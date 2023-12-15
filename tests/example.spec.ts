@@ -22,7 +22,7 @@ for (let index = 0; index < 500; index++) {
     await page.waitForLoadState();
     await page
       .getByRole("textbox", { name: "* Email *" })
-      .fill("fadnew1@gmail.com");
+      .fill(`fadnew${index}@gmail.com`);
     await page
       .getByRole("textbox", { name: "* Phone Number *" })
       .fill("(954) 718-7803");
