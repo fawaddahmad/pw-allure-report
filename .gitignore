@@ -132,3 +132,10 @@ dist
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/allure-report/
+/allure-results/
+/jsonReports/
