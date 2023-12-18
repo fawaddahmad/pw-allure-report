@@ -2,19 +2,13 @@ import { test, expect } from "@playwright/test";
 
 const products = ["100824-0000", "970281-0000", "970282-0000"];
 
-// test("", async ({ page }) => {
-//   for (let index = 0; index < 500; index++) {
-//     const rand_index = Math.floor(Math.random() * 3);
-//     let product = products[rand_index];
-//     console.log(rand_index);
-//   }
-// });
-
 for (let index = 0; index < 500; index++) {
   test(`Placing order number: ${index + 1}`, async ({ page }) => {
     const rand_index = Math.floor(Math.random() * 3);
     let product = products[rand_index];
-    await page.goto(`https://staging.aerogarden.com/${product}.html/`);
+    console.log(`Product SKU: ${product}`);
+
+    await page.goto(`https://dev.aerogarden.com/${product}.html/`);
     await page
       .locator(".c-product-detail__action__add-to-cart__btn-text")
       .click();
@@ -30,7 +24,7 @@ for (let index = 0; index < 500; index++) {
     await page.waitForLoadState();
     await page
       .getByRole("textbox", { name: "* Email *" })
-      .fill("fadnew1@gmail.com");
+      .fill(`fawad${index + 1}@gmail.com`);
     await page
       .getByRole("textbox", { name: "* Phone Number *" })
       .fill("(954) 718-7803");
@@ -76,6 +70,12 @@ for (let index = 0; index < 500; index++) {
     // await page.goto('https://staging.aerogarden.com/on/demandware.store/Sites-Aerogarden-Site/en_US/Stripe-PaymentElementOrderPlaced');
     // await page.goto('https://staging.aerogarden.com/order-confirmation/?ID=STG_AG_00037089&token=FFkfdkWRoApM8ImTvJAqzdkzHy1aFahwpAj5K7ih0jc');
     await page.waitForURL(/order-confirmation/);
+    console.log(
+      `Order Number: ${await page
+        .locator(".summary-details.order-number")
+        .innerText()}`
+    );
+
     await expect(
       page.getByRole("heading", { name: "Thank You", exact: true })
     ).toBeVisible();
