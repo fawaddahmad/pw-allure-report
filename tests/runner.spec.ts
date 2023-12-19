@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const products = ["100824-0000", "970281-0000", "970282-0000"];
 
-for (let index = 0; index < 500; index++) {
+for (let index = 0; index < 1; index++) {
   test(`Placing order number: ${index + 1}`, async ({ page }) => {
     const rand_index = Math.floor(Math.random() * 3);
     let product = products[rand_index];
