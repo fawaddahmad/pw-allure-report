@@ -31,8 +31,8 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          ref: gh-pages2
-          path: gh-pageslkjl
+          ref: fawad
+          path: fawad
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
@@ -40,7 +40,7 @@ jobs:
         id: allure-report
         with:
           allure_results: allure-results
-          gh_pages: gh-pages2
+          gh_pages: fawad
           allure_report: allure-report
           allure_history: allure-history
           keep_reports: 20
@@ -50,5 +50,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.WORKFLOW_TOKEN }}
-          publish_branch: gh-pages2
+          publish_branch: fawad
           publish_dir: allure-history
