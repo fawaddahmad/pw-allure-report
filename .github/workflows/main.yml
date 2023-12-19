@@ -32,7 +32,7 @@ jobs:
         continue-on-error: true
         with:
           ref: gh-pages2
-          path: gh-pages
+          path: gh-pageslkjl
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
