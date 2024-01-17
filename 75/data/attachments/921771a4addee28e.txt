@@ -1,0 +1,1 @@
+PNC Test is successfull and Allure report is deployed on remote repo.
